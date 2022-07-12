@@ -1,48 +1,79 @@
 #include "main.h"
 
 /**
-* printf_int - print an integer
-* @args: int
-*
+* print_int - prints an integer
+* @args: input string
+* @ibuf: index for buff pointer
+* @buf: buff pointer
 * Return: the decimal function
 */
-int print_i(va_list args)
+int print_int(va_list args, char *buf, unsigned int ibuf)
 {
-return (print_d(args));
+	int int_input;
+	unsigned int int_in, int_temp, i, div, isneg;
+
+	int_input = va_arg(args, int);
+	isneg = 0;
+	if (int_input < 0)
+	{
+		int_in = int_input * -1;
+		ibuf = handl_buf(buf, '-', ibuf);
+		isneg = 1;
+	}
+	else
+	{
+		int_in = int_input;
+	}
+
+	int_temp = int_in;
+	div = 1;
+
+	while (int_temp > 9)
+	{
+		div *= 10;
+		int_temp /= 10;
+	}
+
+	for (i = 0; div > 0; div /= 10, i++)
+	{
+		ibuf = handl_buf(buf, ((int_in / div) % 10) + '0', ibuf);
+	}
+	return (i + isneg);
 }
 
 /**
-* printf_dec - prints a decimal
-* @args: decimal argument
-*
+* prinpint - prints integer with a plus symbol
+* @args: input string
+* @ibuf: index for buff pointer
+* @buf: buff pointer
 * Return: counter
 */
-int print_d(va_list args)
+int prinpint(va_list args, char *buf, unsigned int ibuf)
 {
-	unsigned int absolute, aux, countnum, count;
-	int n;
+	unsigned int int_in, int_temp, i, div;
+	int int_input;
 
-	count = 0;
-	n = va_arg(args, int);
-		if (n < 0)
-		{
-			absolute = (n * -1);
-			count += _putchar('-');
-		}
-		else
-			absolute = n;
-
-	aux = absolute;
-	countnum = 1;
-	while (aux > 9)
+	int_input = va_arg(args, int);
+	if (int_input < 0)
 	{
-		aux /= 10;
-		countnum *= 10;
+		int_in = int_input * -1;
+		ibuf = handl_buf(buf, '-', ibuf);
 	}
-	while (countnum >= 1)
+	else
 	{
-		count += _putchar(((absolute / countnum) % 10) + '0');
-		countnum /= 10;
+		int_in = int_input;
+		ibuf = handl_buf(buf, '+', ibuf);
 	}
-	return (count);
+	int_temp = int_in;
+	div = 1;
+	while (int_temp > 9)
+	{
+		div *= 10;
+		int_temp /= 10;
+	}
+	for (i = 0; div > 0; div /= 10, i++)
+	{
+		ibuf = handl_buf(buf, ((int_in / div) % 10) + '0', ibuf);
+	}
+	return (i + 1);
 }
