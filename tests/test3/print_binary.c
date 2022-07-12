@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 /**
- * print_b - converts a number into binary
+ * print_binary - converts a number into binary
  * @args: list of arguments
  *
  * Return: amount of chars printed
  */
-int print_b(va_list args)
+int print_binary(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int), i = 0, j = 0, a = num;
 	char *s;
