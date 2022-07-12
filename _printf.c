@@ -8,9 +8,9 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, j = 0, n = 0;
+	unsigned int i = 0, len = 0, ibuf = 0;
 	va_list args;
-	int (*func)(va_list, char *, unsigned int);
+	int (*function)(va_list, char *, unsigned int);
 	char *buffer;
 
 	va_start(args, format), buffer = malloc(sizeof(char) * 1024);
@@ -23,29 +23,29 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '\0')
-			{	print_buffer(buffer, n), free(buffer), va_end(args);
+			{	print_buffer(buffer, ibuf), free(buffer), va_end(args);
 				return (-1);
 			}
 			else
-			{	func = get_func(format, i + 1);
-				if (func == NULL)
+			{	function = get_func(format, i + 1);
+				if (function == NULL)
 				{
 					if (format[i + 1] == ' ' && !format[i + 2])
 						return (-1);
-					handle_buffer(buffer, format[i], n), j++, i--;
+					handle_buffer(buffer, format[i], ibuf), len++, i--;
 				}
 				else
 				{
-					j += func(args, buffer, n);
+					len += function(args, buffer, ibuf);
 					i += ev_print(format, i + 1);
 				}
 			} i++;
 		}
 		else
-			handle_buffer(buffer, format[i], n), j++;
-		for (n = j; n > 1024; n -= 1024)
+			handle_buffer(buffer, format[i], ibuf), len++;
+		for (ibuf = len; ibuf > 1024; ibuf -= 1024)
 			;
 	}
-	print_buffer(buffer, n), free(buffer), va_end(args);
-	return (j);
+	print_buffer(buffer, ibuf), free(buffer), va_end(args);
+	return (len);
 }
