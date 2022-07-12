@@ -12,6 +12,10 @@ int (*get_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"b", print_b}, {"l", print_prg},
 		{"h", print_prg}, {" %", print_prg},
 		{"d", print_i}, {"i", print_i},
+		{"b", print_b}, {"u", print_unt};
+		{"X", print_upx}, {"S", print_S},
+		{"p", print_p}, {"x", print_hex},
+		{"o", printoct}, {"r", print_rev},
 		{NULL, NULL}
 	};
 	int i = 0, j = 0, first_index;

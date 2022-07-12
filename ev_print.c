@@ -10,10 +10,14 @@ int ev_print(const char *s, int index)
 {
 	print_t pr[] = {
 		{"c", print_c}, {"s", print_s},
-		{"i", print_i}, {"d", print_i},
-		{"%", print_prg}, {"l", print_prg},
-		{"h", print_prg}, {"b", print_b},
-		{NULL, NULL},
+		{"b", print_b}, {"l", print_prg},
+		{"h", print_prg}, {" %", print_prg},
+		{"d", print_i}, {"i", print_i},
+		{"b", print_b}, {"u", print_unt};
+		{"X", print_upx}, {"S", print_S},
+		{"p", print_p}, {"x", print_hex},
+		{"o", printoct}, {"r", print_rev},
+		{NULL, NULL}
 	};
 	int i = 0, j = 0, first_index;
 
