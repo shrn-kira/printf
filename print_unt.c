@@ -116,14 +116,14 @@ int print_hex(va_list args, char *buf, unsigned int ibuf)
 }
 
 /**
-* prinnupx - prints number in uppercase hex
+* print_upx - prints number in uppercase hex
 * @args: input string
 * @buf: buff pointer
 * @ibuf: index for buff pointer
 *
 * Return: number of chars printed
 */
-int prinnupx(va_list args, char *buf, unsigned int ibuf)
+int print_upx(va_list args, char *buf, unsigned int ibuf)
 {
 	int int_input, i, isnegative, count, first_digit;
 	char *hexadecimal, *binary;

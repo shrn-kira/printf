@@ -40,7 +40,7 @@ char *fill_hex_array(char *bnr, char *hex, int isupp, int limit);
 char *fill_long_oct_array(char *bnr, char *oct);
 char *fill_oct_array(char *bnr, char *oct);
 int print_hex(va_list args, char *buf, unsigned int ibuf);
-int prinnupx(va_list args, char *buf, unsigned int ibuf);
+int print_upx(va_list args, char *buf, unsigned int ibuf);
 int print_oct(va_list args, char *buf, unsigned int ibuf);
 int print_unt(va_list args, char *buf, unsigned int ibuf);
 int print_S(va_list args, char *buf, unsigned int ibuf);
