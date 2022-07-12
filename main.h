@@ -20,21 +20,12 @@ typedef struct print
 } print_t;
 
 int _printf(const char *format, ...);
-<<<<<<< HEAD
-int print_c(va_list args);
-int print_s(va_list args);
 int prinpint(va_list args, char *buf, unsigned int ibuf);
 int print_int(va_list args, char *buf, unsigned int ibuf);	
-int _putchar(char c);
-int print_b(va_list args);
-int print_percent(va_list args);
-int (*get_func(char x))(va_list args);
-=======
 int print_prg(va_list __attribute__((unused)), char *, unsigned int);
 int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int);
 unsigned int handl_buf(char *buf, char c, unsigned int ibuf);
 int print_buf(char *buf, unsigned int nbuf);
 int ev_print_func(const char *s, int index);
->>>>>>> 7650d51b198208f63029e6e8ddb0dfde1f7ccac7
 
 #endif
