@@ -29,11 +29,19 @@ unsigned int handl_buf(char *buf, char c, unsigned int ibuf);
 int print_buf(char *buf, unsigned int nbuf);
 int ev_print_func(const char *s, int index);
 int print_buffer(char *buf, unsigned int nbuf);
-char *binary_array(char *bnr, long int n, int isneg, int size);
+char *fill_binary_array(char *bnr, long int n, int isneg, int size);
 int ev_print(const char *s, int index);
 int printi(va_list args, char *buf, unsigned int ibuf);
 int print_i(va_list args, char *buf, unsigned int ibuf);
 unsigned int handle_buffer(char *buf, char c, unsigned int ibuf);
 int print_b(va_list args, char *ptr, unsigned int ibuf);
+char *fill_short_oct_array(char *bnr, char *oct);
+char *fill_hex_array(char *bnr, char *hex, int isupp, int limit);
+char *fill_long_oct_array(char *bnr, char *oct);
+char *fill_oct_array(char *bnr, char *oct);
+int print_hex(va_list args, char *buf, unsigned int ibuf);
+int prinnupx(va_list args, char *buf, unsigned int ibuf);
+int print_oct(va_list args, char *buf, unsigned int ibuf);
+int print_unt(va_list args, char *buf, unsigned int ibuf);
 
 #endif

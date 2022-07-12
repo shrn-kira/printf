@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * binary_array - prints decimal in binary
+ * fill_binary_array - prints decimal in binary
  * @bnr: pointer to binary
  * @n: input number
  * @isneg: if input number is negative
  * @size: size of the binary
  * Return: number of chars printed.
  */
-char *binary_array(char *bnr, long int n, int isneg, int size)
+char *fill_binary_array(char *bnr, long int n, int isneg, int size)
 {
 	int i;
 
@@ -61,7 +61,7 @@ int print_b(va_list args, char *ptr, unsigned int ibuf)
 		isneg = 1;
 	}
 	b = malloc(sizeof(char) * (32 + 1));
-	b = binary_array(b, input, isneg, 32);
+	b = fill_binary_array(b, input, isneg, 32);
 	first_one = 0;
 	for (result = i = 0; b[i]; i++)
 	{
