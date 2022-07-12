@@ -1,52 +1,51 @@
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
-#include <stddef.h>
+
 /**
- * _printf - recreates the printf function
- * @format: string with format specifier
- * Return: number of characters printed
+ * _printf - formatted output conversion and print data.
+ * @format: input string.
+ *
+ * Return: number of chars printed.
  */
 int _printf(const char *format, ...)
 {
-	if (format != NULL)
-	{
-		int count = 0, i;
-		int (*m)(va_list);
-		va_list args;
+	unsigned int i = 0, j = 0, n = 0;
+	va_list args;
+	int (*func)(va_list, char *, unsigned int);
+	char *buffer;
 
-		va_start(args, format);
-		i = 0;
-		if (format[0] == '%' && format[1] == '\0')
-			return (-1);
-		while (format != NULL && format[i] != '\0')
+	va_start(args, format), buffer = malloc(sizeof(char) * 1024);
+	if (!format || !buffer || (format[i] == '%' && !format[i + 1]))
+		return (-1);
+	if (!format[i])
+		return (0);
+	for (i = 0; format && format[i]; i++)
+	{
+		if (format[i] == '%')
 		{
-			if (format[i] == '%')
-			{
-				if (format[i + 1] == '%')
+			if (format[i + 1] == '\0')
+			{	print_buf(buffer, n), free(buffer), va_end(args);
+				return (-1);
+			}
+			else
+			{	func = get_print_func(format, i + 1);
+				if (func == NULL)
 				{
-					count += _putchar(format[i]);
-					i += 2;
+					if (format[i + 1] == ' ' && !format[i + 2])
+						return (-1);
+					handl_buf(buffer, format[i], n), j++, i--;
 				}
 				else
 				{
-					m = get_func(format[i + 1]);
-					if (m)
-						count += m(args);
-					else
-						count = _putchar(format[i]) + _putchar(format[i + 1]);
-					i += 2;
+					j += func(args, buffer, n);
+					i += ev_print_func(format, i + 1);
 				}
-			}
-			else
-			{
-				count += _putchar(format[i]);
-				i++;
-			}
+			} i++;
 		}
-		va_end(args);
-		return (count);
+		else
+			handl_buf(buffer, format[i], n), j++;
+		for (n = j; n > 1024; n -= 1024)
+			;
 	}
-	return (-1);
+	print_buf(buffer, n), free(buffer), va_end(args);
+	return (j);
 }
