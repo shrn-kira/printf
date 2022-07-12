@@ -1,15 +1,18 @@
 #include "main.h"
 /**
- * get_print_func - selects the correct function to perform the operation.
+ * get_func - selects the correct function to perform the operation.
  * @s: argument indentifier
  * @index: index for argument indentifier
  * Return: pointer to a function.
  */
-int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
+int (*get_func(const char *s, int index))(va_list, char *, unsigned int)
 {
 	print_t pr[] = {
-		{"l", print_prg}, {"h", print_prg},
-		{" %", print_prg}, {NULL, NULL},
+		{"c", print_c}, {"s", print_s},
+		{"b", print_b}, {"l", print_prg},
+		{"h", print_prg}, {" %", print_prg},
+		{"d", print_i}, {"i", print_i},
+		{NULL, NULL}
 	};
 	int i = 0, j = 0, first_index;
 

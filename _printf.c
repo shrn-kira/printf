@@ -23,29 +23,29 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '\0')
-			{	print_buf(buffer, n), free(buffer), va_end(args);
+			{	print_buffer(buffer, n), free(buffer), va_end(args);
 				return (-1);
 			}
 			else
-			{	func = get_print_func(format, i + 1);
+			{	func = get_func(format, i + 1);
 				if (func == NULL)
 				{
 					if (format[i + 1] == ' ' && !format[i + 2])
 						return (-1);
-					handl_buf(buffer, format[i], n), j++, i--;
+					handle_buffer(buffer, format[i], n), j++, i--;
 				}
 				else
 				{
 					j += func(args, buffer, n);
-					i += ev_print_func(format, i + 1);
+					i += ev_print(format, i + 1);
 				}
 			} i++;
 		}
 		else
-			handl_buf(buffer, format[i], n), j++;
+			handle_buffer(buffer, format[i], n), j++;
 		for (n = j; n > 1024; n -= 1024)
 			;
 	}
-	print_buf(buffer, n), free(buffer), va_end(args);
+	print_buffer(buffer, n), free(buffer), va_end(args);
 	return (j);
 }
