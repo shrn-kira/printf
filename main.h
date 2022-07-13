@@ -47,5 +47,8 @@ int print_S(va_list args, char *buf, unsigned int ibuf);
 int print_p(va_list args, char *buf, unsigned int ibuf);
 int print_rev(va_list args, char *buf, unsigned int ibuf);
 int print_rot13(va_list args, char *buf, unsigned int ibuf);
+int print_a(va_list args, char *buf, unsigned int ibuf);
+int print_lo_hex(va_list args, char *buf, unsigned int ibuf);
+int print_lo_i(va_list args, char *buf, unsigned int ibuf);
 
 #endif
