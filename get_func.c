@@ -21,7 +21,9 @@ int (*get_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"lo", print_lo_oct}, {"lu", print_lo_uint},
 		{"lX", print_lo_upx}, {"#x", print_n_hex},
 		{"#o", print_n_oct}, {"hx", print_s_hex},
-		{"hi", print_s_int}, {NULL, NULL},
+		{"hi", print_s_int}, {"ho", print_s_oct},
+		{"hu", print_s_uint}, 
+		{NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 
