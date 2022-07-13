@@ -25,16 +25,16 @@ int (*get_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"hi", print_s_int}, {"hd", print_s_int},
 		{"ho", print_s_oct}, {"#i", print_i},
 		{"#d", print_i}, {"#u", print_unt},
-		{"+i", printint}, {"+d", printint},
+		{"+i", print_unt}, {"+d", print_unt},
 		{"+u", print_unt}, {"+o", print_oct},
 		{"+x", print_hex}, {"+X", print_upx},
 		{" u", print_unt}, {" o", print_oct},
 		{" x", print_hex}, {" X", print_upx},
-		{"%", print_prg}, {" +i", printint},
-		{" +d", printint}, {"+ i", printint},
+		{"%", print_prg}, {" +i", print_unt},
+		{" +d", print_unt}, {"+ i", print_unt},
 		{"hu", print_s_uint}, {"hX", print_s_upx},
 		{" i", print_spc_int}, {" d", print_spc_int},
-		{"+ d", printint}, {NULL, NULL},
+		{"+ d", print_unt}, {NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 
