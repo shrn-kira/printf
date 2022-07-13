@@ -18,7 +18,8 @@ int (*get_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"o", print_oct}, {"r", print_rev},
 		{"R", print_rot13}, {"p", print_a},
 		{"lx", print_lo_hex}, {"li", print_lo_i},
-	       	{NULL, NULL},
+		{"lo", print_lo_oct}, {"lu", print_lo_uint},
+		{"lX", print_lo_upx}, {NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 

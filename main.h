@@ -50,5 +50,9 @@ int print_rot13(va_list args, char *buf, unsigned int ibuf);
 int print_a(va_list args, char *buf, unsigned int ibuf);
 int print_lo_hex(va_list args, char *buf, unsigned int ibuf);
 int print_lo_i(va_list args, char *buf, unsigned int ibuf);
+int print_lo_oct(va_list args, char *buf, unsigned int ibuf);
+int print_lo_uint(va_list args, char *buf, unsigned int ibuf);
+int print_lo_upx(va_list args, char *buf, unsigned int ibuf);
+
 
 #endif
