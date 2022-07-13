@@ -59,6 +59,8 @@ int print_s_hex(va_list args, char *buf, unsigned int ibuf);
 int print_s_int(va_list args, char *buf, unsigned int ibuf);
 int print_s_oct(va_list args, char *buf, unsigned int ibuf);
 int print_s_uint(va_list args, char *buf, unsigned int ibuf);
+int print_s_upx(va_list args, char *buf, unsigned int ibuf);
+int print_spc_int(va_list args, char *buf, unsigned int ibuf);
 
 
 #endif
