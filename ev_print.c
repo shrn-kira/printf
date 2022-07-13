@@ -17,7 +17,7 @@ int ev_print(const char *s, int index)
 		{"X", print_upx}, {"S", print_S},
 		{"p", print_p}, {"x", print_hex},
 		{" o", print_oct}, {"r", print_rev},
-		{NULL, NULL},
+		{"R", print_rot13},{NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 

@@ -46,5 +46,6 @@ int print_unt(va_list args, char *buf, unsigned int ibuf);
 int print_S(va_list args, char *buf, unsigned int ibuf);
 int print_p(va_list args, char *buf, unsigned int ibuf);
 int print_rev(va_list args, char *buf, unsigned int ibuf);
+int print_rot13(va_list args, char *buf, unsigned int ibuf);
 
 #endif
