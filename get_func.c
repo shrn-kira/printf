@@ -16,7 +16,7 @@ int (*get_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"X", print_upx}, {"S", print_S},
 		{"p", print_p}, {"x", print_hex},
 		{"o", print_oct}, {"r", print_rev},
-		{"R", print_rot13}, {"p", print_a},
+		{"R", print_rot13}, {" x", print_hex},
 		{"lx", print_lo_hex}, {"li", print_lo_i},
 		{"ld", print_lo_i}, {"#X", print_upx},
 		{"lo", print_lo_oct}, {"lu", print_lo_uint},
@@ -29,12 +29,12 @@ int (*get_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"+u", print_unt}, {"+o", print_oct},
 		{"+x", print_hex}, {"+X", print_upx},
 		{" u", print_unt}, {" o", print_oct},
-		{" x", print_hex}, {" X", print_upx},
-		{"%", print_prg}, {" +i", print_unt},
+		{"+ d", print_unt}, {" +i", print_unt},
 		{" +d", print_unt}, {"+ i", print_unt},
 		{"hu", print_s_uint}, {"hX", print_s_upx},
 		{" i", print_spc_int}, {" d", print_spc_int},
-		{"+ d", print_unt}, {NULL, NULL},
+		{" X", print_upx},
+		{NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 

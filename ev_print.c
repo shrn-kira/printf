@@ -11,9 +11,9 @@ int ev_print(const char *s, int index)
 	print_t pr[] = {
 		{"c", print_c}, {"s", print_s},
 		{"b", print_b}, {"l", print_prg},
-		{"h", print_prg}, {" %", print_prg},
+		{"h", print_prg}, {"%", print_prg},
 		{"d", print_i}, {"i", print_i},
-		{"b", print_b}, {"u", print_unt},
+		{"u", print_unt},{" %", print_prg},
 		{"X", print_upx}, {"S", print_S},
 		{"p", print_p}, {"x", print_hex},
 		{" o", print_oct}, {"r", print_rev},
@@ -29,13 +29,13 @@ int ev_print(const char *s, int index)
 		{"+i", print_unt}, {"+d", print_unt},
 		{"+u", print_unt}, {"+o", print_oct},
 		{"+x", print_hex}, {"+X", print_upx},
-		{" u", print_unt},  {"p", print_a},
-		{" x", print_hex}, {" X", print_upx},
-		{"%", print_prg}, {" +i", print_unt},
+		{" u", print_unt}, {" x", print_hex},
+		{"+ d", print_unt}, {" +i", print_unt},
 		{" +d", print_unt}, {"+ i", print_unt},
 		{"hu", print_s_uint}, {"hX", print_s_upx},
 		{" i", print_spc_int}, {" d", print_spc_int},
-		{"+ d", print_unt}, {NULL, NULL},
+		{" X", print_upx},
+		{NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 
