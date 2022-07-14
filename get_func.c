@@ -33,8 +33,7 @@ int (*get_func(const char *s, int index))(va_list, char *, unsigned int)
 		{" +d", print_unt}, {"+ i", print_unt},
 		{"hu", print_s_uint}, {"hX", print_s_upx},
 		{" i", print_spc_int}, {" d", print_spc_int},
-		{" X", print_upx},
-		{NULL, NULL},
+		{" X", print_upx}, {NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 
