@@ -37,13 +37,13 @@ int print_unt(va_list l, flags_t *f);
 int count_digit(int i);
 
 /* print_bases */
-int print_hex_low(va_list l, flags_t *f);
-int print_hex_upp(va_list l, flags_t *f);
-int print_bnr(va_list l, flags_t *f);
-int print_oct(va_list l, flags_t *f);
+int print_hex(va_list l, flags_t *f);
+int print_hex_big(va_list l, flags_t *f);
+int print_binary(va_list l, flags_t *f);
+int print_octal(va_list l, flags_t *f);
 
 /* converter */
-char *num_2_string(unsigned long int num, int base, int lowercase);
+char *convert(unsigned long int num, int base, int lowercase);
 
 /* _printf */
 int _printf(const char *format, ...);
@@ -52,7 +52,7 @@ int _printf(const char *format, ...);
 int (*get_print_out(char s))(va_list, flags_t *);
 
 /* get_flag */
-int flag(char s, flags_t *f);
+int get_flag(char s, flags_t *f);
 
 /* print_alpha */
 int print_s(va_list l, flags_t *f);

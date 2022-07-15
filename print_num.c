@@ -34,7 +34,7 @@ int print_i(va_list l, flags_t *f)
 int print_unt(va_list l, flags_t *f)
 {
 	unsigned int u = va_arg(l, unsigned int);
-	char *str = num_2_string(u, 10, 0);
+	char *str = convert(u, 10, 0);
 
 	(void)f;
 	return (_puts(str));
