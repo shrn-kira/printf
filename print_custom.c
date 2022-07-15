@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* print_bigS - Non printable characters
+* print_S - Non printable characters
 * (0 < ASCII value < 32 or >= 127) are
 * printed this way: \x, followed by the ASCII code
 * value in hexadecimal (upper case - always 2 characters)
@@ -11,7 +11,7 @@
 *
 * Return: number of char printed
 */
-int print_bigS(va_list l, flags_t *f)
+int print_S(va_list l, flags_t *f)
 {
 	int i, count = 0;
 	char *res;
@@ -27,7 +27,7 @@ int print_bigS(va_list l, flags_t *f)
 		{
 			_puts("\\x");
 			count += 2;
-			res = convert(s[i], 16, 0);
+			res = num_2_string(s[i], 16, 0);
 			if (!res[1])
 				count += _putchar('0');
 			count += _puts(res);
@@ -98,13 +98,13 @@ int print_rot13(va_list l, flags_t *f)
 }
 
 /**
-* print_percent - prints a percent
+* print_prg - prints a percent
 * @l: va_list arguments from _printf
 * @f: pointer to the struct flags in which we turn the flags on
 *
 * Return: number of char printed
 */
-int print_percent(va_list l, flags_t *f)
+int print_prg(va_list l, flags_t *f)
 {
 	(void)l;
 	(void)f;

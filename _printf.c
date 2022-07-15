@@ -34,9 +34,9 @@ int _printf(const char *format, ...)
 				count += _putchar('%');
 				continue;
 			}
-			while (get_flag(*p, &flags))
+			while (flag(*p, &flags))
 				p++;
-			pfunc = get_print(*p);
+			pfunc = get_print_out(*p);
 			count += (pfunc)
 				? pfunc(arguments, &flags)
 				: _printf("%%%c", *p);
