@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_print_out - selects the right printing function
+ * get_print - selects the right printing function
  * depending on the conversion specifier passed to _printf
  * @s: character that holds the conversion specifier
  * Description: the function loops through the structs array
@@ -10,23 +10,23 @@
  * printing function
  * Return: a pointer to the matching printing function
  */
-int (*get_print_out(char s))(va_list, flags_t *)
+int (*get_print(char s))(va_list, flags_t *)
 {
 	ph func_arr[] = {
-		{'i', print_i},
-		{'s', print_s},
-		{'c', print_c},
-		{'d', print_i},
-		{'u', print_unt},
+		{'i', print_int},
+		{'s', print_string},
+		{'c', print_char},
+		{'d', print_int},
+		{'u', print_unsigned},
 		{'x', print_hex},
 		{'X', print_hex_big},
 		{'b', print_binary},
 		{'o', print_octal},
 		{'R', print_rot13},
 		{'r', print_rev},
-		{'S', print_S},
-		{'p', print_add},
-		{'%', print_prg}
+		{'S', print_bigS},
+		{'p', print_address},
+		{'%', print_percent}
 		};
 	int flags = 14;
 

@@ -1,6 +1,4 @@
 #include "main.h"
-#include <limits.h>
-#include <stdio.h>
 
 /**
  * _printf - produces output according to a format
@@ -36,7 +34,7 @@ int _printf(const char *format, ...)
 			}
 			while (get_flag(*p, &flags))
 				p++;
-			pfunc = get_print_out(*p);
+			pfunc = get_print(*p);
 			count += (pfunc)
 				? pfunc(arguments, &flags)
 				: _printf("%%%c", *p);
